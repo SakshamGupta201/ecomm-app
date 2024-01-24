@@ -1,0 +1,28 @@
+{
+  "seller": [
+    {
+      "id": "3e33",
+      "username": "Saksham Gupta",
+      "email": "saksham.gupta@gmail.com",
+      "password": "Password"
+    },
+    {
+      "id": "a503",
+      "username": "bykofy",
+      "email": "walubaq@mailinator.com",
+      "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "ae39",
+      "username": "fofemekex",
+      "email": "bebi@mailinator.com",
+      "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "9f39",
+      "username": "positydosa",
+      "email": "qytepola@mailinator.com",
+      "password": "Pa$$w0rd!"
+    }
+  ]
+}
