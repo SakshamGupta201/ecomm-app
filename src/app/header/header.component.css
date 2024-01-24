@@ -1,0 +1,14 @@
+.navbar-title,
+li a,
+li a:active {
+  color: var(--primary-color) !important;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
+.navbar-expand-lg .navbar-collapse {
+  justify-content: space-around;
+
+}
