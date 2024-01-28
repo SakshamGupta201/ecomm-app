@@ -1,5 +1,6 @@
 .seller-auth {
   color: var(--primary-color) !important;
+  max-width: 50%;
 }
 
 button {

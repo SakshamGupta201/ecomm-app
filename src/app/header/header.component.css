@@ -10,5 +10,9 @@ li a:active {
 
 .navbar-expand-lg .navbar-collapse {
   justify-content: space-around;
+}
 
+.navbar-search {
+  padding-left: 16rem !important;
+  width: 34rem;
 }

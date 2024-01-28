@@ -1,6 +1,6 @@
-<div class="seller-auth">
-  <form #sellerSignUpForm="ngForm" (ngSubmit)="signUpForm(sellerSignUpForm.value)">
-    <h2 class="text-center mt-3">Seller Sign Up form</h2>
+<div class="seller-auth mx-auto">
+  <form *ngIf="!showLogin" #sellerSignUpForm="ngForm" (ngSubmit)="signUpForm(sellerSignUpForm.value)">
+    <h2 class="text-center mt-3">Seller Sign Up Form</h2>
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>
       <input type="text" class="form-control" #username="ngModel" ngModel name="username" id="username"
@@ -26,7 +26,40 @@
       </div>
     </div>
 
+    <p class="text-center text-muted mt-2 mb-2">Have already an account?
+      <a (click)="openLogin()" class="fw-bold text-body"><u>Login here</u></a>
+    </p>
     <button type="submit" class="btn btn-outline-primary"
       [disabled]="sellerSignUpForm.pristine || sellerSignUpForm.pending">Submit</button>
   </form>
+
+  <form *ngIf="showLogin" #sellerSignInForm="ngForm" (ngSubmit)="signInForm(sellerSignInForm.value)">
+    <h2 class="text-center mt-3">Seller LogIn Form</h2>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" #email="ngModel" ngModel name="email" id="exampleInputEmail1"
+        aria-describedby="emailHelp" required email autocomplete="email" placeholder="Enter Email">
+      <div class="invalid" role="alert" *ngIf="email.invalid && (email.dirty || email.touched)">
+        Please enter a valid email.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" #password="ngModel" ngModel name="password" id="exampleInputPassword1"
+        required autocomplete="new-password" placeholder="Enter Password">
+      <div class="invalid" role="alert" *ngIf="password.invalid && (password.dirty || password.touched)">
+        Please choose a password.
+      </div>
+    </div>
+
+    <p class="text-center text-muted mt-2 mb-2">New User?
+      <a (click)="openLogin()" class="fw-bold text-body"><u>Sign Up here</u></a>
+    </p>
+    <div class="invalid" role="alert" *ngIf="authError">
+      Please Check Email or Password
+    </div>
+    <button type="submit" class="btn btn-outline-primary"
+      [disabled]="sellerSignInForm.pristine || sellerSignInForm.pending">Submit</button>
+  </form>
+
 </div>
