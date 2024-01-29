@@ -1,1 +1,35 @@
-<p>seller-home works!</p>
+<div class="product-list">
+  <h1>All Products</h1>
+  <table *ngIf="productList.length > 0; else noProducts" class="table table-striped">
+    <thead>
+      <tr>
+        <th class=" text-center" scope="col">#</th>
+        <th class=" text-center" scope="col">Image</th>
+        <th class=" text-center" scope="col">Name</th>
+        <th class=" text-center" scope="col">Price</th>
+        <th class=" text-center" scope="col">Color</th>
+        <th class=" text-center" scope="col">Category</th>
+        <th class=" text-center" scope="col">Description</th>
+        <th class=" text-center" scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of productList; index as i">
+        <th scope="row">{{i}}</th>
+        <td class=""><img [src]="item.productImage" [alt]="item.productName" height="50px" width="50px">
+        </td>
+        <td class="">{{item.productName}}</td>
+        <td class="">{{item.productPrice}}</td>
+        <td class="">{{item.productColor}}</td>
+        <td class="">{{item.productCategory}}</td>
+        <td class="">{{item.productDescription}}</td>
+        <td><button type="button" class="btn btn-danger" (click)="deleteProduct(item.id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #noProducts>
+    <div class="alert alert-danger" role="alert">
+      No Products Available!
+    </div>
+  </ng-template>
+</div>

@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
       if (value.url) {
         let storedSeller = localStorage.getItem('seller');
         if (storedSeller && value.url.includes('seller')) {
-          debugger;
           let seller: User = JSON.parse(storedSeller)[0];
           this.sellerName = seller.username;
           this.menuType = 'seller';

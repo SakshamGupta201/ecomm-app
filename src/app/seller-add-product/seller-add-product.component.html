@@ -1,5 +1,8 @@
 <div class="seller-add-product">
   <h1>Add New seller-add-product</h1>
+  <div *ngIf="isProductAdded" class="alert alert-success" role="alert">
+    Product added Successfully!
+  </div>
   <form #addProductForm="ngForm" (ngSubmit)="addProduct(addProductForm.value)">
     <div class="mb-3">
       <label for="productName" class="form-label">Enter Product Name</label>
@@ -27,11 +30,20 @@
     </div>
     <div class="mb-3">
       <label for="productCategory" class="form-label">Enter Product Category</label>
-      <textarea type="text" class="form-control" name="productCategory" ngModel #productCategory="ngModel" required
-        autocomplete="name" id="productCategory" rows="3" aria-describedby="productCategory"></textarea>
+      <input type="text" class="form-control" name="productCategory" ngModel #productCategory="ngModel" required
+        autocomplete="name" id="productCategory" rows="3" aria-describedby="productCategory" />
       <div class="invalid" role="alert"
         *ngIf="productCategory.invalid && (productCategory.dirty || productCategory.touched)">
         Please choose a productCategory.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="productDescription" class="form-label">Enter Product Description</label>
+      <textarea type="text" class="form-control" name="productDescription" ngModel #productDescription="ngModel"
+        required autocomplete="name" id="productDescription" rows="3" aria-describedby="productDescription"></textarea>
+      <div class="invalid" role="alert"
+        *ngIf="productDescription.invalid && (productDescription.dirty || productDescription.touched)">
+        Please choose a productDescription.
       </div>
     </div>
     <div class="mb-3">
