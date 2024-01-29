@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../interfaces/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seller-home',
@@ -10,7 +11,7 @@ import { Product } from '../interfaces/product';
 export class SellerHomeComponent implements OnInit {
   productList: Product[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit(): void {
     this.getProducts();
@@ -20,6 +21,10 @@ export class SellerHomeComponent implements OnInit {
     this.productService.getProducts().subscribe((products) => {
       this.productList = products;
     });
+  }
+
+  updateProduct(id: string): void {
+    this.router.navigate(['seller-add-product/', { id: id }]);
   }
 
   deleteProduct(id: string): void {
@@ -33,6 +38,5 @@ export class SellerHomeComponent implements OnInit {
     });
 
     this.productList = this.productList.filter((product) => product.id !== id);
-    console.log(this.productList);
   }
 }

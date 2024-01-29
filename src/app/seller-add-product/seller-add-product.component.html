@@ -1,9 +1,21 @@
 <div class="seller-add-product">
-  <h1>Add New seller-add-product</h1>
+  <h1 *ngIf="!isUpdate">Add New Product</h1>
+  <h1 *ngIf="isUpdate">Update Product</h1>
   <div *ngIf="isProductAdded" class="alert alert-success" role="alert">
-    Product added Successfully!
+    <p *ngIf="!isUpdate; else update">Product added Successfully!</p>
+    <ng-template #update>
+      <p>Product updated Successfully!</p>
+    </ng-template>
   </div>
   <form #addProductForm="ngForm" (ngSubmit)="addProduct(addProductForm.value)">
+    <div class="mb-3" *ngIf="false">
+      <label for="id" class="form-label">Enter Product Name</label>
+      <input type="text" class="form-control" name="id" ngModel #id="ngModel" autocomplete="name" id="id"
+        aria-describedby="id" required>
+      <div class="invalid" role="alert" *ngIf="id.invalid && (id.dirty || id.touched)">
+        Please choose a id.
+      </div>
+    </div>
     <div class="mb-3">
       <label for="productName" class="form-label">Enter Product Name</label>
       <input type="text" class="form-control" name="productName" ngModel #productName="ngModel" autocomplete="name"

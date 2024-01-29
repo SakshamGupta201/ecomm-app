@@ -15,8 +15,16 @@ export class ProductService {
     return this.http.post<void>(this.apiUrl, data);
   }
 
+  updateProduct(product: Product): Observable<Product> {
+    return this.http.put<Product>(this.apiUrl + `/${product.id}`, product);
+  }
+
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl);
+  }
+
+  getProduct(id: string): Observable<Product> {
+    return this.http.get<Product>(this.apiUrl + `/${id}`);
   }
 
   deleteProduct(id: string): Observable<Product> {

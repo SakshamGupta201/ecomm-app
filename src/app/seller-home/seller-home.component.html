@@ -10,6 +10,7 @@
         <th class=" text-center" scope="col">Color</th>
         <th class=" text-center" scope="col">Category</th>
         <th class=" text-center" scope="col">Description</th>
+        <th class=" text-center" scope="col">Update</th>
         <th class=" text-center" scope="col">Delete</th>
       </tr>
     </thead>
@@ -23,7 +24,10 @@
         <td class="">{{item.productColor}}</td>
         <td class="">{{item.productCategory}}</td>
         <td class="">{{item.productDescription}}</td>
-        <td><button type="button" class="btn btn-danger" (click)="deleteProduct(item.id)">Delete</button></td>
+        <td><button type="button" class="btn btn-info" (click)="deleteProduct(item.id)"><img
+              src="../../assets/svg/update-icon-svgrepo-com.svg" height="20" alt="" srcset=""></button></td>
+        <td><button type="button" class="btn btn-danger" (click)="deleteProduct(item.id)"><img
+              src="../../assets/svg/delete.svg" height="20" alt="" srcset=""></button></td>
       </tr>
     </tbody>
   </table>
