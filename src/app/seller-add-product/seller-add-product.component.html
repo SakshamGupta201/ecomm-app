@@ -1,1 +1,48 @@
-<p>seller-add-product works!</p>
+<div class="seller-add-product">
+  <h1>Add New seller-add-product</h1>
+  <form #addProductForm="ngForm" (ngSubmit)="addProduct(addProductForm.value)">
+    <div class="mb-3">
+      <label for="productName" class="form-label">Enter Product Name</label>
+      <input type="text" class="form-control" name="productName" ngModel #productName="ngModel" autocomplete="name"
+        id="productName" aria-describedby="productName" required>
+      <div class="invalid" role="alert" *ngIf="productName.invalid && (productName.dirty || productName.touched)">
+        Please choose a productName.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="productPrice" class="form-label">Enter Product Price</label>
+      <input type="text" class="form-control" name="productPrice" ngModel #productPrice="ngModel" autocomplete="name"
+        required id="productPrice" aria-describedby="productPrice">
+      <div class="invalid" role="alert" *ngIf="productPrice.invalid && (productPrice.dirty || productPrice.touched)">
+        Please choose a productPrice.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="productColor" class="form-label">Enter Product Color</label>
+      <input type="text" class="form-control" name="productColor" ngModel #productColor="ngModel" autocomplete="name"
+        required id="productColor" aria-describedby="productColor">
+      <div class="invalid" role="alert" *ngIf="productColor.invalid && (productColor.dirty || productColor.touched)">
+        Please choose a productColor.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="productCategory" class="form-label">Enter Product Category</label>
+      <textarea type="text" class="form-control" name="productCategory" ngModel #productCategory="ngModel" required
+        autocomplete="name" id="productCategory" rows="3" aria-describedby="productCategory"></textarea>
+      <div class="invalid" role="alert"
+        *ngIf="productCategory.invalid && (productCategory.dirty || productCategory.touched)">
+        Please choose a productCategory.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="enterProduct" class="form-label">Enter Product Image</label>
+      <input type="text" class="form-control" name="productImage" ngModel #productImage="ngModel" autocomplete="name"
+        required id="productImage" aria-describedby="productImage">
+      <div class="invalid" role="alert" *ngIf="productImage.invalid && (productImage.dirty || productImage.touched)">
+        Please choose a productImage.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-outline-primary"
+      [disabled]="addProductForm.pristine || addProductForm.pending">Submit</button>
+  </form>
+</div>
