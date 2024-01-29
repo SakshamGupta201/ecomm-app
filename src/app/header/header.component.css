@@ -4,6 +4,10 @@ li a:active {
   color: var(--primary-color) !important;
 }
 
+li a:hover {
+  cursor: pointer;
+}
+
 .nav-link.active {
   font-weight: bold;
 }
